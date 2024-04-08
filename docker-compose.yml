@@ -21,9 +21,9 @@ services:
    - host.docker.internal:172.17.0.1
    - gateway.docker.internal:172.17.0.1
   volumes: 
-   - /path/to/medusa/config:/config
-   - /path/to/downloads:/downloads
-   - /path/to/tv/shows:/tv
+   - ./medusa/config:/config
+   - ./downloads:/downloads
+   - ./tv/shows:/tv
 #  mem_limit: 1000m
 
 
