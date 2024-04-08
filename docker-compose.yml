@@ -2,7 +2,7 @@ version: '3'
 services:
  kaillera:
   hostname: ${hostname}
-  image: raulaxxo/kaillera:${version}
+  image: lscr.io/linuxserver/medusa:latest
   logging:
     driver: "json-file"
     options:
@@ -10,17 +10,20 @@ services:
       max-size: "10m"
   container_name: ${hostname}
   restart: always
-#  ports:
- #  - '27888-27988:27888-27988/udp'
+  ports:
+   - 8081:8081
   environment:
-   - TZ=America/Santiago
+   - PUID=1000
+   - PGID=1000
+   - TZ=Etc/UTC
   network_mode: host
   extra_hosts:
    - host.docker.internal:172.17.0.1
    - gateway.docker.internal:172.17.0.1
-  #volumes: 
-#   - '/data/sitios:/data/sitios/'
-#   - './mnt/:/mnt/'
+  volumes: 
+   - /path/to/medusa/config:/config
+   - /path/to/downloads:/downloads
+   - /path/to/tv/shows:/tv
 #  mem_limit: 1000m
 
 

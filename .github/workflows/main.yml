@@ -21,7 +21,7 @@ jobs:
     - name: Build and push Docker image
       run: |
         source .env
-        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/kaillera:$version .
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/kaillera:$version
+        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/$hostname:$version .
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/$hostname:$version
       env:
         DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
